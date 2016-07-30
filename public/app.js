@@ -14,7 +14,11 @@ angular.module('userProfiles', ['ui.router'])
 		controller: 'profileCtrl',
 		resolve: {
 			userInfo: function( friendService ) {
-				/* FIX ME */
+				return friendService.getFriends().then(function(res) {
+					console.log(res.data);
+					console.log("res.data");
+					return res.data;
+				});
 			}
 		}
 	});
